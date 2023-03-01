@@ -1,0 +1,21 @@
+<div class="buttons">
+  <ng-container *ngFor="let path of dataPatchs">
+    <button (click)="downloadDataFromTxtInAssets(path)">
+      Download {{ path }}
+    </button>
+  </ng-container>
+</div>
+<div class="title">Count Elements: {{ someStringArray?.length || 0 }}</div>
+
+<div class="content" *ngIf="isFinished">
+  <ng-container *ngFor="let item of someStringArray; let i = index">
+    <div appCheckStatus class="item">
+      <iframe
+        style="width: 230px; height: 60px; border: 0; overflow: hidden"
+        scrolling="no"
+        [src]="sanitizer.bypassSecurityTrustResourceUrl(item)"
+        [id]="'frame' + i"
+      ></iframe>
+    </div>
+  </ng-container>
+</div>
