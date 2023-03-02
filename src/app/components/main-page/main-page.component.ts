@@ -1,9 +1,4 @@
-import {
-  ChangeDetectionStrategy,
-  ChangeDetectorRef,
-  Component,
-  ViewChild,
-} from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { LoadDataService } from '../../services/load-data.service';
 import { MatPaginator } from '@angular/material/paginator';
 
