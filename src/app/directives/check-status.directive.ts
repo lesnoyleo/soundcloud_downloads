@@ -7,7 +7,7 @@ export class CheckStatusDirective {
   countClicked = 0;
 
   constructor(private el: ElementRef) {
-    this.el.nativeElement.addEventListener('click', () => {
+    this.el.nativeElement.addEventListener('mouseenter', () => {
       this.countClicked++;
       this.changeStatus();
     });
@@ -20,6 +20,8 @@ export class CheckStatusDirective {
         break;
       case 2:
         this.el.nativeElement.style.backgroundColor = 'green';
+        break;
+      default:
         break;
     }
   }

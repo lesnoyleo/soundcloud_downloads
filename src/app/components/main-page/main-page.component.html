@@ -1,0 +1,29 @@
+<div class="main-page">
+  <div class="buttons">
+    <ng-container *ngFor="let path of dataPatchs">
+      <button mat-raised-button (click)="downloadDataFromTxtInAssets(path)">
+        Download: {{ path }}
+      </button>
+    </ng-container>
+  </div>
+  <div class="title">
+    Total Count Elements: {{ srcStringArray?.length || 0 }}
+  </div>
+
+  <div class="content" *ngIf="isFinished">
+    <ng-container *ngFor="let src of srcItemsToShow; let i = index">
+      <div appCheckStatus class="item">
+        <app-i-frame [src]="src"></app-i-frame>
+      </div>
+    </ng-container>
+  </div>
+  <div class="paginator">
+    <mat-paginator
+      [length]="srcStringArray?.length"
+      [pageSizeOptions]="pageSizeOptions"
+      aria-label="Select page"
+      (page)="onPageChange($event)"
+    >
+    </mat-paginator>
+  </div>
+</div>
